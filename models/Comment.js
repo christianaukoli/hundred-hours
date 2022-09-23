@@ -5,7 +5,7 @@ const CommentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  commentCount: { //change back to likes
+  likes: { 
     type: Number,
     required: true,
   },

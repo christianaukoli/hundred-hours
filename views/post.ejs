@@ -1,51 +1,42 @@
 <%- include('partials/header') -%>
 <div class="container">
-  <div class="row justify-content-center mt-5">
-    <div class="col-6 border border-dark">
-      <div class="card" style="width: 25rem;">
-        <h2><%= post.title %></h2>
-        <img class="img-fluid" src="<%= post.image%>" />
-      </div>
   <!--trying cards-->
-      <div class="card mb-3" style="max-width: 540px;">
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <img src="" class="card-img" alt="">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
+  <div class="card mb-3 mt-3" style="max-width: 50rem;">
+    <div class="row no-gutters">
+      <div class="col-md-8">
+        <img src="<%= post.image%>" class="card-img" alt="">
+      </div>
+      <div class="col-md-4">
+        <div class="card-body">
+          <h5 class="card-title"><%= post.title %></h5>
+          <p class="card-text"><%= post.caption %></p>
         </div>
       </div>
-      <!--trying cards-->
+    </div>
+  </div>
+  <!--trying cards-->
+  <!--likes and comments under card-->
+  <div class="row justify-content-between col-8">
+    <form
+      class="col-1 mt-1"
+      action="/post/likePost/<%= post.id %>?_method=PUT"
+      method="POST">
+      <button class="btn btn-primary fa fa-heart" type="submit"></button>
+    </form>
+    <h3 class="col-3">Likes: <%= post.likes %></h3>
+    <h3 class="col-3">Comments: <%= post.commentCount %></h3>
+    <%if(post.user == user.id){ %>
+    <form
+      action="/post/deletePost/<%= post.id %>?_method=DELETE"
+      method="POST" class="col-1 mt-1">
+      <button class="btn btn-primary fa fa-trash" type="submit"></button>
+    </form>
+    <%}%>
+  </div>
+  <!--likes and comments under card-->
 
-      <div class="row justify-content-between">
-        <form
-          class="col-1"
-          action="/post/likePost/<%= post.id %>?_method=PUT"
-          method="POST"
-        >
-          <button class="btn btn-primary fa fa-heart" type="submit"></button>
-        </form>
-        <h3 class="col-3">Likes: <%= post.likes %></h3>
-        <h3 class="col-3">Comments: <%= comments.commentCount %></h3> <!--delete all this-->
-        <%if(post.user == user.id){ %>
-        <form
-          action="/post/deletePost/<%= post.id %>?_method=DELETE"
-          method="POST"
-          class="col-3"
-        >
-          <button class="btn btn-primary fa fa-trash" type="submit"></button>
-        </form>
-        <%}%>
-      </div>
-    </div>
-    <div class="col-3 mt-5 border border-dark">
-      <p><%= post.caption %></p>
-    </div>
+<!--comment section-->
+  <div class="mt-4">
     <div>
       <h2>Add a comment</h2>
       <form action="/comment/createComment/<%= post._id %>" method="POST">
@@ -53,7 +44,8 @@
           <label for="comment" class="form-label">Comment</label>
           <input type="text" class="form-control" id="comment" name="comment">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <!-- added comment button ID, take that off -->
+        <button type="submit" class="btn btn-primary" id="commentButton">Submit</button>
       </form>
     </div>
     <div class="border border-dark mt-5 py-4">
@@ -65,11 +57,11 @@
         <% } %>
       </ul>
     </div>
-    
-    <div class="col-6 mt-5">
-      <a class="btn btn-primary" href="/profile">Return to Profile</a>
-      <a class="btn btn-primary" href="/feed">Return to Feed</a>
-    </div>
+  </div>
+<!--navigation buttons-->
+  <div class="col-12 mt-5 d-flex justify-content-center">
+    <a class="btn btn-primary mx-1" href="/profile">Return to Profile</a>
+    <a class="btn btn-primary mx-1" href="/feed">Return to Feed</a>
   </div>
 </div>
 

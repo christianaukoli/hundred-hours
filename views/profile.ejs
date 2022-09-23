@@ -2,11 +2,11 @@
 <div class="container">
   <h1>Profile</h1>
   <a href="/createPost" class="col-3 btn btn-primary">Create</a>
-  <div class="row mt-5 border border-dark">
+  <div class="row mt-5">
       <div class="col-12 card-group">
         <ul class="row list-unstyled">
         <% for(var i=0; i<posts.length; i++) {%>
-          <div class="card border border-dark mb-1" style="width: 15rem;"> <!--cards/borders-->
+          <div class="card border border-dark" style="width: 15rem;"> <!--cards/borders-->
             <li class="col-12 mt-5">
               <a href="/post/<%= posts[i]._id%>">
                 <!--is img class where to adjust image size?-->
