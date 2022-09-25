@@ -13,8 +13,12 @@
               <!--is img class where to adjust image size?-->
               <img class="card-img-top" src="<%= posts[i].image%>"> 
             </a>
+            <div class="col-12 d-flex justify-content-between"><!--trying to add like and comment count-->
+              <p class="col-2">Likes: <%= posts[i].likes %></p>
+              <p class="col-3">Comments: <%= posts[i].commentCount %></p>
+            </div>            
           </li>
-          <i class="fa-solid fa-fire-flame-curved fa-2xl mt-4
+          <i class="fa-solid fa-fire-flame-curved fa-2xl mt-2
           d-flex justify-content-end"></i>
           <div class="card-body">
             <h4 class="card-text text-center"><%= posts[i].title%></h4>

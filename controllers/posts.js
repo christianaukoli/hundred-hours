@@ -47,6 +47,7 @@ module.exports = {
         cloudinaryId: result.public_id,
         caption: req.body.caption,
         likes: 0,
+        commentCount:0, //trying to set comments to 0 if no one has comment yet, like Likes on feed
         user: req.user.id,
       });
       console.log("Post has been added!");

@@ -15,6 +15,7 @@
     </div>
   </div>
   <!--trying cards-->
+  <h6><%= post.createdAt %></h6>
   <!--likes and comments under card-->
   <div class="row justify-content-between col-8">
     <form
@@ -23,8 +24,8 @@
       method="POST">
       <button class="btn btn-primary fa fa-heart" type="submit"></button>
     </form>
-    <h3 class="col-3">Likes: <%= post.likes %></h3>
-    <h3 class="col-3">Comments: <%= post.commentCount %></h3>
+    <h3 class="col-2">Likes: <%= post.likes %></h3>
+    <h3 class="col-4">Comments: <%= post.commentCount %></h3>
     <%if(post.user == user.id){ %>
     <form
       action="/post/deletePost/<%= post.id %>?_method=DELETE"
@@ -50,9 +51,9 @@
     </div>
     <div class="border border-dark mt-5 py-4">
       <ul>
-        <% for(var i=0; i<comments.length; i++) {%>
-          <li class="col-12 my-1 justify-content-between">
-            <%= comments[i].comment%>
+        <% for(var i=0; i<comments.length; i++) {%> 
+          <li class="my-1 justify-content-between list-unstyled"><!--took col-12 off-->
+            <h6 class="col-1 border border-dark"><%= user.userName%>:</h6> <p class="col-10 border border-dark"><%= comments[i].comment%></p> <!--adding username to comment, check functionality when adding other users-->
           </li>
         <% } %>
       </ul>
