@@ -1,15 +1,25 @@
 <%- include('partials/header') -%>
 <div class="container">
   <div class="row mt-5">
-      <div class="col-6">
+      <div class=""><!--took col off from here-->
           <div>
+            <div class="">
               <p><strong>User Name</strong>: <%= user.userName %></p>
               <p><strong>Email</strong>: <%= user.email %></p>
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+              <a href="/logout" class="col-2 btn btn-primary">Logout</a>
+            </div>
+            <div>
+              <h1>Create A Post</h1>
+            </div>  
           </div>
-          <div class="mt-5">
-            <h2>Add a Post</h2>
+          
+          <div class="mt-5 border border-dark row justify-content-center col-12">
+            <h2 class="text-center">Add a Post</h2>
             <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+              <div class="mb-3">
+                <label for="imgUpload" class="form-label">Video</label>
+                <input type="file" class="form-control" id="imageUpload" name="file">
+              </div>
               <div class="mb-3">
                   <label for="title" class="form-label">Workout Title</label>
                   <input type="text" class="form-control" id="title" name="title">
@@ -17,10 +27,6 @@
               <div class="mb-3">
                 <label for="caption" class="form-label">Workout Description</label>
                 <textarea class="form-control" id="caption" name="caption"></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="imgUpload" class="form-label">Video</label>
-                <input type="file" class="form-control" id="imageUpload" name="file">
               </div>
               <button type="submit" class="btn btn-primary" value="Upload">Post</button>
             </form>

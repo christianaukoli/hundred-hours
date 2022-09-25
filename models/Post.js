@@ -31,4 +31,7 @@ const PostSchema = new mongoose.Schema({
   },
 });
 
+//adding for search functionality
+//schema.index({title: 'text', caption: 'text'});
+
 module.exports = mongoose.model("Post", PostSchema);

@@ -2,21 +2,27 @@
 <div class="container">
   <h1>Profile</h1>
   <a href="/createPost" class="col-3 btn btn-primary">Create</a>
-  <div class="row mt-5">
-      <div class="col-12">
+  <div class="row mt-5 border border-dark">
+      <div class="col-12 card-group">
         <ul class="row list-unstyled">
         <% for(var i=0; i<posts.length; i++) {%>
-          <li class="col-4 justify-content-between mt-5 border border-dark">
-            <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid justify-content-center" src="<%= posts[i].image%>">
-            </a>
-          </li>
+          <div class="card border border-dark mb-1" style="width: 15rem;"> <!--cards/borders-->
+            <li class="col-12 mt-5">
+              <a href="/post/<%= posts[i]._id%>">
+                <!--is img class where to adjust image size?-->
+                <img class="card-img-top" src="<%= posts[i].image%>"> 
+              </a>
+            </li>
+            <div class="card-body">
+              <h4 class="card-text text-center"><%= posts[i].title%></h4>
+            </div>
+          </div>
         <% } %>
-        </ul>
-        <div class="row justify-content-center mt-5">
-          <a class="btn btn-primary col-2" href="/feed">Return to Feed</a>
-        </div>  
-      </div>  
+        </ul> 
+      </div> 
+      <div class="row justify-content-center mt-5">
+        <a class="btn btn-primary col-2" href="/feed">Return to Feed</a>
+      </div>   
     </div>
   </div>
 </div>
