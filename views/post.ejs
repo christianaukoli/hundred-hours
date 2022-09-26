@@ -53,7 +53,10 @@
       <ul>
         <% for(var i=0; i<comments.length; i++) {%> 
           <li class="my-1 justify-content-between list-unstyled"><!--took col-12 off-->
-            <h6 class="col-1 border border-dark"><%= user.userName%>:</h6> <p class="col-10 border border-dark"><%= comments[i].comment%></p> <!--adding username to comment, check functionality when adding other users-->
+            <div class="col-12 border border-dark"> <!--trying to format on same line-->
+              <h6 class="col-1 border border-dark"><%= comments[i].user%></h6><p class="col-6 border border-dark"><%= comments[i].comment%></p> <!--adding username to comment, check functionality when adding other users-->
+            </div>
+            
           </li>
         <% } %>
       </ul>

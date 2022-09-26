@@ -9,6 +9,7 @@ createComment: async (req, res) => {
       await Comment.create({
         comment: req.body.comment,
         likes: 0, 
+        user: req.user.id, //figure out how to make this userNAME
         post: req.params.id,
         createdAt: req.body.createdAt,
       });
