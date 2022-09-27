@@ -1,7 +1,7 @@
 <%- include('partials/header') -%>
 <div class="container">
   <!--trying cards-->
-  <div class="card mb-3 mt-3" style="max-width: 50rem;">
+  <div class="card mb-3 mt-5" style="max-width: 50rem;">
     <div class="row no-gutters">
       <div class="col-md-8">
         <img src="<%= post.image%>" class="card-img" alt="">
@@ -52,9 +52,10 @@
     <div class="border border-dark mt-5 py-4">
       <ul>
         <% for(var i=0; i<comments.length; i++) {%> 
-          <li class="my-1 justify-content-between list-unstyled"><!--took col-12 off-->
-            <div class="col-12 border border-dark"> <!--trying to format on same line-->
-              <h6 class="col-1 border border-dark"><%= comments[i].user%></h6><p class="col-6 border border-dark"><%= comments[i].comment%></p> <!--adding username to comment, check functionality when adding other users-->
+          <li class="col-11 my-1 justify-content-between list-unstyled"><!--took col-12 off-->
+             <!--trying to format on same line-->
+            <div class="row">
+              <p class="col-1 border border-dark fw-bold"><%= comments[i].user.userName%>:</p><p class="col-9 border border-dark"><%= comments[i].comment%></p> <!--adding username to comment, check functionality when adding other users-->
             </div>
             
           </li>
