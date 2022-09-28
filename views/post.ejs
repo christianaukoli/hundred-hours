@@ -45,17 +45,15 @@
           <label for="comment" class="form-label">Comment</label>
           <input type="text" class="form-control" id="comment" name="comment">
         </div>
-        <!-- added comment button ID, take that off -->
-        <button type="submit" class="btn btn-primary" id="commentButton">Submit</button>
-      </form>
+        <button type="submit" class="btn btn-primary" >Submit</button>
+      </form> <!--need to make forms REQUIRE input before submitting-->
     </div>
-    <div class="border border-dark mt-5 py-4">
+    <div class="bg-white border border-dark mt-5 py-4">
       <ul>
         <% for(var i=0; i<comments.length; i++) {%> 
-          <li class="col-11 my-1 justify-content-between list-unstyled"><!--took col-12 off-->
-             <!--trying to format on same line-->
+          <li class="my-1 justify-content-between list-unstyled"><!--took col-12 off-->
             <div class="row">
-              <p class="col-1 border border-dark fw-bold"><%= comments[i].user.userName%>:</p><p class="col-9 border border-dark"><%= comments[i].comment%></p> <!--adding username to comment, check functionality when adding other users-->
+              <p class="col-sm-2 col-lg-1 border border-dark fw-bold px-0"><%= comments[i].user.userName%>:</p><p class="col-sm-9 col-lg-10 border border-dark px-0"><%= comments[i].comment%></p> <!--adding username to comment, check functionality when adding other users-->
             </div>
             
           </li>

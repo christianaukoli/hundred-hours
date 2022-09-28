@@ -20,9 +20,9 @@ module.exports = {
     }
   },
   getFeed: async (req, res) => {
-    try {
-      const posts = await Post.find().sort({ createdAt: "desc" }).lean();
-      res.render("feed.ejs", { posts: posts });
+    try {   //trying to show all stories - added post: req and .populate
+      const posts = await Post.find({post: req.params.id}).sort({ createdAt: "desc" }).populate("user").lean(); 
+      res.render("feed.ejs", { posts: posts }); 
     } catch (err) {
       console.log(err);
     }
